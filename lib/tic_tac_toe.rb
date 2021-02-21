@@ -9,6 +9,7 @@ def display_board(board)
    puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
+
 def input_to_index(user_input)
    user_input.to_i - 1
 end
@@ -31,9 +32,7 @@ def valid_move?(board, index)
    end
 end
 
-#input_to_index(user_input)
 
-#move(board, index, first_player = "X")
 
 def turn_count(board)
    counter = 0
@@ -48,19 +47,7 @@ def current_player(board)
    turn_count(board) % 2 == 0 ? "X" : "O"
 end
 
-Play Method A
-def play(board)
-   counter = 0
-   until counter == 9
-     turn(board)
-     counter += 1
-   end
-end
-Play Method B
-def play(board)
-   until over?(board) 
-      turn(board)
-   end 
+
    if won?(board)
       winner(board) == "X" || winner(board) == "O" 
       puts "Congratulations #{winner(board)}!" 
@@ -68,6 +55,7 @@ def play(board)
       puts "Cats Game!" 
    end 
 end
+
 
 def turn(board)
    puts "Please enter 1-9:"
@@ -80,24 +68,6 @@ def turn(board)
    display_board(board)
 end
 
-valid_move?(board, index)
-move(board, index, current_player(board))
-current_player(board)
-
-WIN_COMBINATIONS = [ 
-#[0,1,2], # top_row 
-#[3,4,5], # middle_row 
-#[6,7,8], # bottom_row 
-[0,3,6], # left_column 
-[1,4,7], # center_column 
-[2,5,8], # right_column 
-[0,4,8], # left_diagonal 
-[6,4,2] # right_diagonal 
-]
-
-parent_array => WIN_COMBINATIONS = [ children_arrays ] 
-children_arrays => [0,1,2],[3,4,5],[6,7,8]...[6,4,2] 
-
 def won?(board)
  WIN_COMBINATIONS.each do |win_combination|
    win_index_1 = win_combination[0]
@@ -109,7 +79,11 @@ def won?(board)
    position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1)
  end
 end
+
 position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1) 
+
+
+#position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1) 
 
 
 
