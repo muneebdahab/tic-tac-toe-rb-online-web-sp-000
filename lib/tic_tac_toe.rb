@@ -8,7 +8,6 @@ def display_board(board)
    puts "-----------"
    puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
-display_board(board)
 
 def input_to_index(user_input)
    user_input.to_i - 1
@@ -32,15 +31,9 @@ def valid_move?(board, index)
    end
 end
 
-display_board(board)
+#input_to_index(user_input)
 
-valid_move?(board, index)
-
-position_taken?(board, index)
-
-input_to_index(user_input)
-
-move(board, index, first_player = "X")
+#move(board, index, first_player = "X")
 
 def turn_count(board)
    counter = 0
@@ -92,9 +85,9 @@ move(board, index, current_player(board))
 current_player(board)
 
 WIN_COMBINATIONS = [ 
-[0,1,2], # top_row 
-[3,4,5], # middle_row 
-[6,7,8], # bottom_row 
+#[0,1,2], # top_row 
+#[3,4,5], # middle_row 
+#[6,7,8], # bottom_row 
 [0,3,6], # left_column 
 [1,4,7], # center_column 
 [2,5,8], # right_column 
@@ -116,8 +109,8 @@ def won?(board)
    position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1)
  end
 end
-#position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1) 
-The above code means to return first element (position_1) & make sure the position is taken by X or O
+position_1 == position_2 && position_2 == position_3 && position_taken?(board, win_index_1) 
+
 
 
 def full?(board)
